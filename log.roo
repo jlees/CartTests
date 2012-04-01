@@ -1,0 +1,19 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-01 07:34:30
+project --topLevelPackage com.lees --projectName CardstoreTests --java 6 --packaging JAR
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-04-01 07:34:31
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-01 07:34:39
+jpa setup --provider HIBERNATE --database HYPERSONIC_PERSISTENT 
+entity jpa --class com.lees.model.Cart --testAutomatically 
+entity jpa --class com.lees.model.CartPersonalizedItem --testAutomatically 
+entity jpa --class com.lees.model.CartPhysicalItem --testAutomatically 
+focus --class com.lees.model.Cart
+field set --fieldName items --type com.lees.model.CartPersonalizedItem --cardinality ONE_TO_MANY 
+focus --class com.lees.model.CartPersonalizedItem
+field set --fieldName items --type com.lees.model.CartPhysicalItem --cardinality ONE_TO_MANY 
+focus --class com.lees.model.Cart
+field string --fieldName shippingFirstName --sizeMax 200
+focus --class com.lees.model.Cart
+finder list --filter shippingCity
+finder add --finderName findCartsByShippingCityEquals
+repository jpa --interface com.lees.repository.CartRepository --entity com.lees.model.Cart
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-04-01 09:34:21
