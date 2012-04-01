@@ -53,6 +53,11 @@ public class CartIntegrationTest {
     	List<Cart> matchingCarts = cartRepository.findCartByRecipientCity(city);
     	Assert.assertNotNull(matchingCarts);
     	Assert.assertEquals(1, matchingCarts.size());
+    	
+    	String shippingAddress1 = "Market";
+    	matchingCarts = cartRepository.findCartsByShippingAddress1Like(shippingAddress1);
+    	Assert.assertNotNull(matchingCarts);
+    	Assert.assertEquals(1, matchingCarts.size());
 
     	String state = "OH";
     	matchingCartPhysicalItems = cartRepository.findCartPhysicalItemsByRecipientState(state);
